@@ -1,10 +1,10 @@
 #include <stdio.h>
 
-// int findArraySize(int arr[])
-// {
-//     int size = sizeof(arr)/sizeof(arr[0]);
-//     return size;
-// }
+int findArraySize(int *arr[])
+{
+    int size = sizeof(arr)/sizeof(arr[0]);
+    return size;
+}
 
 void printArray(int arr[])
 {
@@ -13,6 +13,7 @@ void printArray(int arr[])
     {
         printf("%d ,",arr[i]);
     } 
+    return;
 }
 
 // int searchEvenNumber (int array[])
@@ -37,14 +38,16 @@ void printArray(int arr[])
 */
 int* createArray(int arr[]){ 
     int j = 0;
-    int arr2[j];
+    int arr2[5];
     for (int i = 0; i < 5; i++)
     {
         if (arr[i] % 2 == 0)
         {
+
             arr2[j] = arr[i];
             printf("%d ,",arr2[j]);
             j++;
+
         }
     }
     return &arr2;
@@ -54,10 +57,12 @@ int* createArray(int arr[]){
 int main(){
 
     int arr1[5] = {6,1,4,9,2}; 
-    createArray(arr1);
+    int size = findArraySize(arr1);
+    printf("%d", size)
+    //int arr2[3] = createArray(arr1);
 
 
-    // int j = 0;
+    // int j = 1;
     // int arr2[j];
 
     // int size = sizeof(arr1)/sizeof(arr1[0]);
@@ -68,10 +73,11 @@ int main(){
     //     if (arr1[i] % 2 == 0)
     //     {
     //         arr2[j] = arr1[i];
+    //         printf("%d ,",arr2[j]);
     //         j++;
     //     }
     // }
 
-    //printArray(arr2);
+    //printArray(arr1);
     //searchEvenNumber(arr1);
 }
