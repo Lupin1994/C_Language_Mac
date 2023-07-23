@@ -1,68 +1,63 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/*Массивы распадаются на указатели при переходе к функции. 
-Используя только указатель, вы не можете получить размер массива. 
-Вы должны передать вызывающей функции еще один аргумент, 
+/*Массивы распадаются на указатели при переходе к функции.
+Используя только указатель, вы не можете получить размер массива.
+Вы должны передать вызывающей функции еще один аргумент,
 который является размером массива. Нужно пояснение...*/
 
-int FindSizeArray2(int size, int arr[])
+int findSizeOutputArray(int size_input_array, int input_array[])
 {
-    int count = 0;
-    for (int i = 0; i < size; i++)
+    int count_numbers = 0;
+    for (int i = 0; i < size_input_array; i++)
     {
-        if (arr[i] % 2 == 0)
+        if (input_array[i] % 2 == 0)
         {
-            count++;
+            count_numbers++;
         }
     }
-    return count;
+    return count_numbers;
 }
 
-int FillingArray2(int size1,int size2, int arr1[], int *arr2)
+int fillingOutputArray(int size_input_array, int size_output_array, int input_array[], int *output_array)
 {
     int p = 0;
-    //int *arr2 = malloc(size2 * sizeof(int));// веделение памяти под size2 колличество элементов
-    for (int i = 0; i < size1; i++)
+    // int *output_array = malloc(size_output_array * sizeof(int));// веделение памяти под size_output_array колличество элементов
+    for (int i = 0; i < size_input_array; i++)
     {
-        if (arr1[i] % 2 == 0)
+        if (input_array[i] % 2 == 0)
         {
-            arr2[p] = arr1[i];
-            //printf("%d , ",arr2[p]);
+            output_array[p] = input_array[i];
+            // printf("%d , ",output_array[p]);
             p++;
         }
     }
     printf("[");
-    for (int i = 0; i < size2; i++)
+    for (int i = 0; i < size_output_array; i++)
     {
-        printf("%d ", arr2[i]);
+        printf("%d ", output_array[i]);
     }
     printf("]\n");
-    
-    return (int*)arr2; // typecast
-    //free(arr2); --типо освобождение памяти
+
+    return (int *)output_array; // typecast
+    // free(output_array); --типо освобождение памяти
 }
-
-
 
 int main()
 {
-    int arr1[] = {6,1,4,9,2};
+    int input_array[] = {6, 1, 4, 9, 2};
 
-    int size1 = sizeof(arr1)/sizeof(arr1[0]);
+    int size_input_array = sizeof(input_array) / sizeof(input_array[0]);
 
-    int sizeArr2 = FindSizeArray2(size1,arr1);
-    int *arr2 = malloc(sizeArr2 * sizeof(int));
+    int size_output_array = findSizeOutputArray(size_input_array, input_array);
+    int *output_array = malloc(size_output_array * sizeof(int));
 
-    //printf("This array size: %d",sizeArr2);
+    // printf("This array size: %d",sizeArr2);
 
-    //FillingArray2(sizeArr2,arr1);
+    // fillingOutputArray(sizeArr2,input_array);
 
-    int *p = FillingArray2(size1,sizeArr2,arr1,arr2);
-    printf( "p[0] = %d\n", p[0] );
-    printf( "p[1] = %d\n", p[1] );
-    printf( "p[2] = %d\n", p[2] );
-
-
-    
+    int *p = fillingOutputArray(size_input_array, size_output_array, input_array, output_array);
+    printf("p[0] = %d\n", p[0]);
+    printf("p[1] = %d\n", p[1]);
+    printf("p[2] = %d\n", p[2]);
 }
