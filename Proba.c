@@ -36,7 +36,4 @@ int main()
     filter_Even(input_array_size, input_array);
 
     print_Array(filter_Even(input_array_size, input_array), input_array_size);
-    // printf("p[0] = %d\n", p[0]);
-    // printf("p[1] = %d\n", p[1]);
-    // printf("p[2] = %d\n", p[2]);
 }

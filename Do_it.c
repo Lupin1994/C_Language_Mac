@@ -30,7 +30,10 @@ void *print_Array(int *array,int array_size) {
 }
 int main()
 {
-    int input_array[5];
+    printf("Write size array: ");
+    int size;
+    scanf("%d",&size);
+    int input_array[size];
     int input_array_size = sizeof(input_array) / sizeof(input_array[0]);
     //int element = 0;
     //printf("%d",input_array_size);
