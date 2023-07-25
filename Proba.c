@@ -16,7 +16,7 @@ int* filter_Even(int input_array_size, int input_array[], int *output_array)
     printf("%d\n",p);
     int *temp_array = malloc(p * sizeof(int));
     //printf("[");
-    for (int i = 0; i < input_array_size; i++)
+    for (int i = 0; i < p; i++)
     {
         temp_array[i] = output_array[i];
         //printf("%d ", output_array[i]);
