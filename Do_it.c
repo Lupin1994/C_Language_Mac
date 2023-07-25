@@ -13,16 +13,18 @@ int* filter_Even(int input_array_size, int input_array[], int *output_array)
             p++;
         }
     }
+    return (int *)output_array; // typecast
+}
+void *print_Array(int *array,int size) {
+
     printf("[");
-    for (int i = 0; i < input_array_size; i++)
-    {
-        printf("%d ", output_array[i]);
+    for (int i = 0; i < size; i++) {
+        printf("%d \t",array[i]);
     }
     printf("]\n");
 
-    return (int *)output_array; // typecast
+    return 0;
 }
-
 int main()
 {
     int input_array[] = {6, 1, 4, 9, 2};
@@ -31,8 +33,10 @@ int main()
 
     int *output_array = malloc(input_array_size * sizeof(int)); //веделение памяти | free(output_array); --освобождение памяти
 
-    int *p = filter_Even(input_array_size, input_array, output_array);
-    printf("p[0] = %d\n", p[0]);
-    printf("p[1] = %d\n", p[1]);
-    printf("p[2] = %d\n", p[2]);
+    filter_Even(input_array_size, input_array, output_array);
+
+    print_Array(filter_Even(input_array_size, input_array, output_array),input_array_size);
+    // printf("p[0] = %d\n", p[0]);
+    // printf("p[1] = %d\n", p[1]);
+    // printf("p[2] = %d\n", p[2]);
 }
