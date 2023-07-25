@@ -32,24 +32,20 @@ int main()
 {
     int input_array[5];
     int input_array_size = sizeof(input_array) / sizeof(input_array[0]);
-    int element = 0;
+    //int element = 0;
     //printf("%d",input_array_size);
 
     for (int i = 0; i < input_array_size; i++)
     {
         printf("Write element number - %d : ",i+1);
-        input_array[i] = scanf("%d",&element);
-        printf("\n element = %d \n",element);
+        //input_array[i] = scanf("%d",&element); было
+        scanf("%d",&input_array[i]);
+        printf("\n element = %d \n",input_array[i]);
 
     }
-    printf("[");
-    for (int i = 0; i < input_array_size; i++) {
-    printf("%d\t",input_array[i]);
-    }
-    printf("]\n");
 
-    //print_Array(input_array,input_array_size);
-    //filter_Even(input_array_size, input_array);
+    print_Array(input_array,input_array_size);
+    filter_Even(input_array_size, input_array);
 
-    //print_Array(filter_Even(input_array_size, input_array), input_array_size);
+    print_Array(filter_Even(input_array_size, input_array), input_array_size);
 }
