@@ -2,9 +2,10 @@
 #include <stdlib.h>
 
 
-int* filter_Even(int input_array_size, int input_array[], int *output_array)
+int* filter_Even(int input_array_size, int *input_array)
 {
     int p = 0;
+    int *output_array = malloc(input_array_size * sizeof(int)); //веделение памяти | free(output_array); --освобождение памяти
     for (int i = 0; i < input_array_size; i++)
     {
         if (input_array[i] % 2 == 0)
@@ -15,6 +16,7 @@ int* filter_Even(int input_array_size, int input_array[], int *output_array)
     }
     return (int *)output_array; // typecast
 }
+
 void *print_Array(int *array,int size) {
 
     printf("[");
@@ -31,11 +33,9 @@ int main()
 
     int input_array_size = sizeof(input_array) / sizeof(input_array[0]);
 
-    int *output_array = malloc(input_array_size * sizeof(int)); //веделение памяти | free(output_array); --освобождение памяти
+    filter_Even(input_array_size, input_array);
 
-    filter_Even(input_array_size, input_array, output_array);
-
-    print_Array(filter_Even(input_array_size, input_array, output_array),input_array_size);
+    print_Array(filter_Even(input_array_size, input_array), input_array_size);
     // printf("p[0] = %d\n", p[0]);
     // printf("p[1] = %d\n", p[1]);
     // printf("p[2] = %d\n", p[2]);
