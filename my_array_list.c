@@ -11,55 +11,62 @@ void my_array_list(){
 
     char stop_char;
     char end = 's';
-    printf("If you want stop push -s\n");
-
-    while (stop_char != end)
+    while (true)
     {
-        if(size_array >= count_add_numbers){
-            for (int i = 0; i < size_array; i++)
-            {
-                printf("Write element number - %d : ",count_add_numbers+1);
-                scanf("%d",&first_array[i]);
-                printf("\n element = %d \n",first_array[i]);
-                count_add_numbers++;
-            }
-        }
-        else{
-            size_array = size_array*2;
-            int second_array[size_array];
-            for (int i = 0; i < size_array; i++)
-            {
-                second_array[i] = first_array[i];
-            }
+        printf("If you want stop push -s : ");
+        scanf("%s",stop_char);
+        if(stop_char != end){
             if(size_array >= count_add_numbers){
                 for (int i = 0; i < size_array; i++)
                 {
                     printf("Write element number - %d : ",count_add_numbers+1);
-                    scanf("%d",&second_array[i]);
-                    printf("\n element = %d \n",second_array[i]);
+                    scanf("%d",&first_array[i]);
+                    printf("\n element = %d \n",first_array[i]);
                     count_add_numbers++;
                 }
             }
-            else
-            {
+            else{
                 size_array = size_array*2;
+                int second_array[size_array];
                 for (int i = 0; i < size_array; i++)
                 {
-                    first_array[i] = second_array[i];
+                    second_array[i] = first_array[i];
                 }
                 if(size_array >= count_add_numbers){
                     for (int i = 0; i < size_array; i++)
                     {
                         printf("Write element number - %d : ",count_add_numbers+1);
-                        scanf("%d",&first_array[i]);
-                        printf("\n element = %d \n",first_array[i]);
+                        scanf("%d",&second_array[i]);
+                        printf("\n element = %d \n",second_array[i]);
                         count_add_numbers++;
                     }
                 }
+                else
+                {
+                    size_array = size_array*2;
+                    for (int i = 0; i < size_array; i++)
+                    {
+                        first_array[i] = second_array[i];
+                    }
+                    if(size_array >= count_add_numbers){
+                        for (int i = 0; i < size_array; i++)
+                        {
+                            printf("Write element number - %d : ",count_add_numbers+1);
+                            scanf("%d",&first_array[i]);
+                            printf("\n element = %d \n",first_array[i]);
+                            count_add_numbers++;
+                        }
+                    }
+                    
+                }
             }
         }
+        else
+        {
+            break;
+        }
+        
     }
-    return 0;
 }
 
 int main()
