@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <conio.h>
 
 
 int* filter_Even(int input_array_size, int *input_array)
@@ -17,11 +18,11 @@ int* filter_Even(int input_array_size, int *input_array)
     return (int *)output_array; // typecast
 }
 
-void *print_Array(int *array,int size) {
+void *print_Array(int *array,int array_size) {
 
     printf("[");
-    for (int i = 0; i < size; i++) {
-        printf("%d \t",array[i]);
+    for (int i = 0; i < array_size; i++) {
+        printf("%d\t",array[i]);
     }
     printf("]\n");
 
@@ -29,10 +30,24 @@ void *print_Array(int *array,int size) {
 }
 int main()
 {
-    int input_array[] = {6, 1, 4, 9, 2};
-
+    printf("Write size array: ");
+    int size;
+    scanf("%d",&size);
+    int input_array[size];
     int input_array_size = sizeof(input_array) / sizeof(input_array[0]);
+    //int element = 0;
+    //printf("%d",input_array_size);
 
+    for (int i = 0; i < input_array_size; i++)
+    {
+        printf("Write element number - %d : ",i+1);
+        //input_array[i] = scanf("%d",&element); было
+        scanf("%d",&input_array[i]);
+        printf("\n element = %d \n",input_array[i]);
+
+    }
+
+    print_Array(input_array,input_array_size);
     filter_Even(input_array_size, input_array);
 
     print_Array(filter_Even(input_array_size, input_array), input_array_size);

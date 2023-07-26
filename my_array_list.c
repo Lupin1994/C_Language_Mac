@@ -30,9 +30,14 @@ void my_array_list(){
     while (flag == true)
     {
         
-        if(size_array >= count_add_numbers){
+        if(size_array > count_add_numbers){
             for (int i = count_add_numbers; i <= size_array; i++)
             {
+                printf("[");
+                    for (int i = 0; i < count_add_numbers; i++) {
+                        printf("%d\t",first_array[i]);
+                    }
+                    printf("]\n");
                 printf("\nWrite element number - %d : ",count_add_numbers+1);
                 scanf("%d",&first_array[i]);
                 printf("\n element = %d \n",first_array[i]);
