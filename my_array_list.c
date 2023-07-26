@@ -33,9 +33,20 @@ void my_array_list(){
         if(size_array >= count_add_numbers){
             for (int i = count_add_numbers; i <= size_array; i++)
             {
-                printf("Write element number - %d : ",count_add_numbers+1);
+                printf("\nWrite element number - %d : ",count_add_numbers+1);
                 scanf("%d",&first_array[i]);
                 printf("\n element = %d \n",first_array[i]);
+                printf("If you want stop push -s :\n");
+                scanf("%c",&stop_char);
+                if (stop_char == end)
+                {       
+                    flag =false;
+                    printf("[");
+                    for (int i = 0; i < size_array; i++) {
+                        printf("%d\t",first_array[i]);
+                    }
+                    printf("]\n");
+                }
                 count_add_numbers++;
             }
         }
@@ -48,17 +59,17 @@ void my_array_list(){
             }
             first_array = second_array;
         }
-        printf("If you want stop push -s :");
-        scanf("%c",&stop_char);
-        if (stop_char == end)
-        {
-            flag =false;
-            printf("[");
-            for (int i = 0; i < size_array; i++) {
-                printf("%d\t",first_array[i]);
-            }
-            printf("]\n");
-        }
+        // printf("If you want stop push -s :");
+        // scanf("%c",&stop_char);
+        // if (stop_char == end)
+        // {
+        //     flag =false;
+        //     printf("[");
+        //     for (int i = 0; i < size_array; i++) {
+        //         printf("%d\t",first_array[i]);
+        //     }
+        //     printf("]\n");
+        // }
     }
 }
 
