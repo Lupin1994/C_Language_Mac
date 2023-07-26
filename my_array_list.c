@@ -46,6 +46,7 @@ void my_array_list(){
                         printf("%d\t",first_array[i]);
                     }
                     printf("]\n");
+                    break;
                 }
                 count_add_numbers++;
             }
@@ -53,23 +54,12 @@ void my_array_list(){
         else{
             size_array = size_array * 2;
             int *second_array = malloc(size_array * sizeof(int));
-            for (int i = 0; i < size_array; i++)
+            for (int i = 0; i <count_add_numbers;i++)
             {
                 second_array[i] = first_array[i];
             }
             first_array = second_array;
         }
-        // printf("If you want stop push -s :");
-        // scanf("%c",&stop_char);
-        // if (stop_char == end)
-        // {
-        //     flag =false;
-        //     printf("[");
-        //     for (int i = 0; i < size_array; i++) {
-        //         printf("%d\t",first_array[i]);
-        //     }
-        //     printf("]\n");
-        // }
     }
 }
 
