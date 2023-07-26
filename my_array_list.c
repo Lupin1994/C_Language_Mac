@@ -42,7 +42,7 @@ void my_array_list(){
                 {       
                     flag =false;
                     printf("[");
-                    for (int i = 0; i < size_array; i++) {
+                    for (int i = 0; i < count_add_numbers; i++) {
                         printf("%d\t",first_array[i]);
                     }
                     printf("]\n");
