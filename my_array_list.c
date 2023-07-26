@@ -11,13 +11,14 @@ void my_array_list(){
 
     char stop_char;
     char end = 's';
+    printf("If you want stop push -s\n");
 
-    while (true)
+    while (stop_char != end)
     {
-        if(size_array < count_add_numbers){
+        if(size_array >= count_add_numbers){
             for (int i = 0; i < size_array; i++)
             {
-                printf("Write element number - %d : ",i+1);
+                printf("Write element number - %d : ",count_add_numbers+1);
                 scanf("%d",&first_array[i]);
                 printf("\n element = %d \n",first_array[i]);
                 count_add_numbers++;
@@ -30,10 +31,10 @@ void my_array_list(){
             {
                 second_array[i] = first_array[i];
             }
-            if(size_array < count_add_numbers){
+            if(size_array >= count_add_numbers){
                 for (int i = 0; i < size_array; i++)
                 {
-                    printf("Write element number - %d : ",i+1);
+                    printf("Write element number - %d : ",count_add_numbers+1);
                     scanf("%d",&second_array[i]);
                     printf("\n element = %d \n",second_array[i]);
                     count_add_numbers++;
@@ -46,10 +47,10 @@ void my_array_list(){
                 {
                     first_array[i] = second_array[i];
                 }
-                if(size_array < count_add_numbers){
+                if(size_array >= count_add_numbers){
                     for (int i = 0; i < size_array; i++)
                     {
-                        printf("Write element number - %d : ",i+1);
+                        printf("Write element number - %d : ",count_add_numbers+1);
                         scanf("%d",&first_array[i]);
                         printf("\n element = %d \n",first_array[i]);
                         count_add_numbers++;
