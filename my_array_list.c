@@ -31,7 +31,7 @@ void my_array_list(){
     {
         
         if(size_array >= count_add_numbers){
-            for (int i = 0; i < size_array; i++)
+            for (int i = count_add_numbers; i <= size_array; i++)
             {
                 printf("Write element number - %d : ",count_add_numbers+1);
                 scanf("%d",&first_array[i]);
@@ -40,7 +40,7 @@ void my_array_list(){
             }
         }
         else{
-            size_array *= 2;
+            size_array = size_array * 2;
             int *second_array = malloc(size_array * sizeof(int));
             for (int i = 0; i < size_array; i++)
             {
