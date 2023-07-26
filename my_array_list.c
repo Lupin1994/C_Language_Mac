@@ -46,20 +46,23 @@ void my_array_list(){
             {
                 second_array[i] = first_array[i];
             }
-            *first_array = &second_array;
+            first_array = second_array;
         }
-        printf("[");
-        for (int i = 0; i < size_array; i++) {
-            printf("%d\t",first_array[i]);
-        }
-        printf("]\n");
         printf("If you want stop push -s :");
-        flag = scanf("%c",&stop_char) == end ? false:true;
+        scanf("%c",&stop_char);
+        if (stop_char == end)
+        {
+            flag =false;
+            printf("[");
+            for (int i = 0; i < size_array; i++) {
+                printf("%d\t",first_array[i]);
+            }
+            printf("]\n");
+        }
     }
 }
 
 int main()
 {
     my_array_list();
-    return 0;
 }
