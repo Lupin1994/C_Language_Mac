@@ -43,7 +43,7 @@ struct input_array // Создание структуры входного ма�
 };
 
 
-void my_array_list(){
+First_array* my_array_list(){
     int _size_array = 2;
     int _count_add_numbers = 0;
     First_array first_array = {.size_array = _size_array, .count_add_numbers = _count_add_numbers,
@@ -96,11 +96,17 @@ void my_array_list(){
             first_array.start_input_array = second_array;
         }
     }
+    return &first_array;
 }
 
 int main()
 {
     my_array_list();
+    First_array output_array;
+    int* _output_array = output_array.start_input_array;
+    int output_array_size = output_array.count_add_numbers;
+    printf("%d\n",output_array.count_add_numbers);
+    printf("%d",output_array.size_array);
 
-    //print_Array();
+    //print_Array(int* _output_array,int output_array_size);
 }
