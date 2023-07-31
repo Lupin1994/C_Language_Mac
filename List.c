@@ -56,7 +56,9 @@ int main()
 {
     TList list = list_create();
     int item = 5;
-    list_add(list._start_input_array,item);
+    
+    //list_add(list._start_input_array,item);
     list_print(list._start_input_array,list.count_add_numbers);
-
+    list_add(list._start_input_array,item);
+    printf("%d",list.count_add_numbers);
 }
