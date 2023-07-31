@@ -26,16 +26,18 @@ TList list_create() {
     TList list = {
         ._size_array = 1,
         .count_add_numbers = 0,
-        ._start_input_array = malloc(sizeof(int[list._size_array]))
+        //._start_input_array = malloc(sizeof(int[list._size_array]))
+        ._start_input_array = NULL
     };
+    list._start_input_array = (int*)realloc(list._start_input_array,(list.count_add_numbers + 1) * sizeof(int) );
     return list;
 }
 
 void* list_add(TList *list, int item) { // Добавление одного элемента
-    if (list->_size_array <= list->count_add_numbers)
-    {
-        list->_size_array *= 2;
-    }
+    // if (list->_size_array <= list->count_add_numbers)
+    // {
+    //     list->_size_array *= 2;
+    // }
     
     list->_start_input_array[list->count_add_numbers] = item;
     list->count_add_numbers++;
@@ -52,6 +54,7 @@ int main()
     TList list = list_create();
     int item = 5;
     
+    list_add(&list,item);
     list_add(&list,item);
     list_add(&list,item);
     list_add(&list,item);
