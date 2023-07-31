@@ -24,9 +24,9 @@ struct output_array // Создание структуры входного ма
 Second_array filter_Even(int input_array_size, int *input_array)
 {
 
-    Second_array second_array = {.size_array = malloc(sizeof(int)),
+    Second_array second_array = {.size_array = 0,
     .output_array = malloc(sizeof(int[input_array_size]))};
-    second_array.size_array = 0;
+
 
     for (int i = 0; i < input_array_size; i++)
     {
@@ -51,9 +51,11 @@ struct input_array // Создание структуры входного ма�
 
 First_array my_array_list(){
     int _size_array = 2;
-    First_array first_array = {.size_array = _size_array, .count_add_numbers = malloc(_size_array * sizeof(int)),
-    .start_input_array = malloc(sizeof(int[_size_array]))};
-    first_array.count_add_numbers = 0;
+    First_array first_array = {
+        .size_array = _size_array,
+        .count_add_numbers = 0,
+        .start_input_array = malloc(sizeof(int[_size_array]))
+    };
     
     char stop_char;
     char end = 's';

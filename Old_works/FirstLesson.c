@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+//#define arr_size (sizeof arr / sizeof arr[0]);
 
 int get_count_even_numbers(int input_array_size, int input_array[])
 {
