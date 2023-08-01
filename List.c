@@ -49,17 +49,17 @@ return list_length;
 }
 
 
-int main()
-{
-    TList list = list_create();
-    int item = 5;
+// int main()
+// {
+//     // TList list = list_create();
+//     // int item = 5;
     
-    list_add(&list,item);
-    list_add(&list,item);
-    list_add(&list,item);
-    list_add(&list,item);
-    list_add(&list,item);
+//     // list_add(&list,item);
+//     // list_add(&list,item);
+//     // list_add(&list,item);
+//     // list_add(&list,item);
+//     // list_add(&list,item);
 
-    list_print(&list);
-    printf("%d",list.count_add_numbers);
-}
+//     // list_print(&list);
+//     // printf("%d",list.count_add_numbers);
+// }
