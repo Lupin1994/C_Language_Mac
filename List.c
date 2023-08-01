@@ -36,11 +36,13 @@ TList list_create() {
 void* list_add(TList *list, int item) { // Добавление одного элемента
     if (list->_size_array <= list->count_add_numbers)
     {
-        list->_size_array *= 2;
+        list->_size_array += 1;
+        list->_start_input_array = (int*)realloc(list->_start_input_array,list->_size_array * sizeof(int));
     }
     
     list->_start_input_array[list->count_add_numbers] = item;
     list->count_add_numbers++;
+
 }
 
 int list_get_length(TList *list) { // Через каунтер

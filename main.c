@@ -21,5 +21,6 @@ int main()
     } while (_stop_char == 'y');
     
     list_print(&list);
-    //printf("%d",list.count_add_numbers);
+    // int size = sizeof(&list._start_input_array);
+    // printf("%d",size);
 }
