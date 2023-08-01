@@ -26,7 +26,7 @@ TList list_create() {
     TList list = {
         ._size_array = 1,
         .count_add_numbers = 0,
-        ._start_input_array = malloc(sizeof(int[list._size_array]))
+        ._start_input_array =(int*) malloc(list._size_array * sizeof(int))
         //._start_input_array = NULL
     };
     //list._start_input_array = (int*)realloc(list._start_input_array,(list.count_add_numbers + 1) * sizeof(int) );
