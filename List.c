@@ -11,6 +11,9 @@ struct List // Создание структуры входного массив
 
     int _size_array;
     int *_start_input_array;
+
+    int _output_list_size;
+    int *_output_list;
 };
 
 void* list_print(TList *list) {
@@ -21,12 +24,22 @@ void* list_print(TList *list) {
     }
     printf("]\n");
 }
+void* list_print(TList *list) {
+    printf("[");
+    for (int i = 0; i < list->_output_list_size; i++)
+    {
+        printf("%d,\t", list->_output_list[i]);
+    }
+    printf("]\n");
+}
 
 TList list_create() {
     TList list = {
         ._size_array = 1,
         .count_add_numbers = 0,
-        ._start_input_array =(int*) malloc(list._size_array * sizeof(int))
+        ._start_input_array =(int*) malloc(list._size_array * sizeof(int)),
+        ._output_list_size = 0,
+        ._output_list = NULL
         //._start_input_array = NULL
     };
     //list._start_input_array = (int*)realloc(list._start_input_array,(list.count_add_numbers + 1) * sizeof(int) );
@@ -48,6 +61,27 @@ void* list_add(TList *list, int item) { // Добавление одного э�
 int list_get_length(TList *list) { // Через каунтер
 int list_length = list->count_add_numbers;
 return list_length;
+}
+
+void filter_even(TList *list) {
+
+    for (int i = 0; i < list->count_add_numbers; i++)
+    {
+        if (list->_start_input_array[i] % 2 == 0)
+        {
+            list->_output_list_size++;
+        }
+    }
+    list->_output_list = (int*)malloc(list->_output_list_size * syzeof(int));
+    for (int i = 0; i <list->count_add_numbers; i++)
+    {
+        int j = 0;
+        if (list->_start_input_array[i] % 2 == 0)
+        {
+            list->_output_list[j] - list->_start_input_array[i];
+            j++;
+        }
+    }
 }
 
 
