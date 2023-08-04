@@ -12,16 +12,5 @@ void* list_print(TList *list);
 TList list_create();
 void* list_add(TList *list, int item);
 
-typedef struct List_output T_output_List; // Определение нового типа
-
-struct List_output // Создание структуры входного массива
-{
-    int _output_list_size;
-    int *_output_list;
-};
-void filter_even(TList *list, T_output_List *list_output);
-T_output_List list_output_create();
-void* list_output_print(T_output_List *list_output);
-
 int list_get_length(TList *list);
 

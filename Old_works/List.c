@@ -2,7 +2,22 @@
 #include <stdlib.h>
 #include <conio.h>
 #include <stdbool.h>
+typedef struct List_output T_output_List; // Определение нового типа
 
+struct List_output // Создание структуры входного массива
+{
+    int _output_list_size;
+    int *_output_list;
+};
+
+T_output_List list_output_create() {
+    T_output_List list_output = {
+        ._output_list_size = 0,
+        ._output_list=(int*) malloc(list_output._output_list_size * sizeof(int))
+        //._start_input_array = NULL
+    };
+    return list_output;
+}
 typedef struct List TList; // Определение нового типа
 
 struct List // Создание структуры входного массива
@@ -33,6 +48,15 @@ void* list_print(TList *list) {
     printf("]\n");
 }
 
+void* list_output_print(T_output_List *list_output) {
+    printf("[");
+    for (int i = 0; i < list_output->_output_list_size; i++)
+    {
+        printf("%d,\t", list_output->_output_list[i]);
+    }
+    printf("]\n");
+}
+
 
 void* list_add(TList *list, int item) { // Добавление одного элемента
     if (list->_size_array <= list->count_add_numbers)
@@ -51,30 +75,26 @@ int list_length = list->count_add_numbers;
 return list_length;
 }
 
-TList filter_even(TList *list) {
-    TList list_output = {
-        .count_add_numbers = 0,
-        ._start_input_array = NULL
-    };
+void filter_even(TList *list, T_output_List *list_output) {
+
     for (int i = 0; i < list->count_add_numbers; i++)
     {
         if (list->_start_input_array[i] % 2 == 0)
         {
-            list_output.count_add_numbers++;
+            list_output->_output_list_size++;
         }
     }
 
-    list_output._start_input_array = (int*)realloc(list_output._start_input_array,list_output.count_add_numbers * sizeof(int));
+    list_output->_output_list = (int*)realloc(list_output->_output_list,list_output->_output_list_size * sizeof(int));
     int j = 0;
     for (int i = 0; i <list->count_add_numbers; i++)
     {
         if (list->_start_input_array[i] % 2 == 0)
         {
-            list_output._start_input_array[j] = list->_start_input_array[i];
+            list_output->_output_list[j] = list->_start_input_array[i];
             j++;
         }
     }
-    return list_output;
 }
 
 
