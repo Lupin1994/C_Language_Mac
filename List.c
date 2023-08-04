@@ -34,16 +34,22 @@ void* list_print(TList *list) {
 }
 
 
-void* list_add(TList *list, int item) { // Добавление одного элемента
-    if (list->_size_array <= list->count_add_numbers)
+TList *list_add(TList *list, int item) { // Добавление одного элемента
+    TList list_inside = {
+        ._size_array,
+        .count_add_numbers,
+        ._start_input_array
+    };
+    if (list_inside._size_array<= list_inside.count_add_numbers)
     {
-        list->_size_array += 1;
-        list->_start_input_array = (int*)realloc(list->_start_input_array,list->_size_array * sizeof(int));
+        list_inside._size_array += 1;
+        list_inside._start_input_array = (int*)realloc(list_inside._start_input_array,list_inside._size_array * sizeof(int));
     }
     
-    list->_start_input_array[list->count_add_numbers] = item;
-    list->count_add_numbers++;
-
+    list_inside._start_input_array[list_inside.count_add_numbers] = item;
+    list_inside.count_add_numbers++;
+    
+    return list_inside;
 }
 
 int list_get_length(TList *list) { // Через каунтер
@@ -56,22 +62,12 @@ TList filter_even(TList *list) {
         .count_add_numbers = 0,
         ._start_input_array = NULL
     };
+
     for (int i = 0; i < list->count_add_numbers; i++)
     {
         if (list->_start_input_array[i] % 2 == 0)
         {
-            list_output.count_add_numbers++;
-        }
-    }
-
-    list_output._start_input_array = (int*)realloc(list_output._start_input_array,list_output.count_add_numbers * sizeof(int));
-    int j = 0;
-    for (int i = 0; i <list->count_add_numbers; i++)
-    {
-        if (list->_start_input_array[i] % 2 == 0)
-        {
-            list_output._start_input_array[j] = list->_start_input_array[i];
-            j++;
+            list_add(list_output._start_input_array,list->_start_input_array[i]);
         }
     }
     return list_output;
