@@ -19,10 +19,13 @@ int main()
         printf("Next (y/n)? ");
         _stop_char = getchar();
     } while (_stop_char == 'y');
-    
+
     list_print(&list);
-    
-    list
+
+    T_output_List list_output = list_output_create();
+    filter_even(&list,&list_output);
+    list_output_print(&list_output);
+
     // int size = sizeof(&list._start_input_array);
     // printf("%d",size);
 }
