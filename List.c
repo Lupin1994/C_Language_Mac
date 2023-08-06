@@ -41,7 +41,7 @@ void list_add(TList *_entry_list, int item) { // Добавление одног
     //     ._start_input_array = NULL
     // };
 
-    if (_entry_list->_size_array<= _entry_list->count_add_numbers)
+    if (_entry_list->_size_array <= _entry_list->count_add_numbers)
     {
         _entry_list->_size_array += 1;
         _entry_list->_start_input_array = (int*)realloc(_entry_list->_start_input_array,_entry_list->_size_array * sizeof(int));
@@ -58,8 +58,9 @@ return list_length;
 
 TList filter_even(TList *list) {
     TList list_output = {
+        ._size_array = 1,
         .count_add_numbers = 0,
-        ._start_input_array = NULL
+        ._start_input_array = (int*) malloc(list_output._size_array * sizeof(int))
     };
 
     for (int i = 0; i < list->count_add_numbers; i++)
