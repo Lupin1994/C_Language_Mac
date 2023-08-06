@@ -57,11 +57,8 @@ return list_length;
 }
 
 TList filter_even(TList *list) {
-    TList list_output = {
-        ._size_array = 1,
-        .count_add_numbers = 0,
-        ._start_input_array = (int*) malloc(list_output._size_array * sizeof(int))
-    };
+
+    TList list_output = list_create();
 
     for (int i = 0; i < list->count_add_numbers; i++)
     {
