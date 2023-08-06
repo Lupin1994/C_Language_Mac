@@ -34,22 +34,21 @@ void* list_print(TList *list) {
 }
 
 
-TList *list_add(TList *list, int item) { // Добавление одного элемента
-    TList list_inside = {
-        ._size_array,
-        .count_add_numbers,
-        ._start_input_array
-    };
-    if (list_inside._size_array<= list_inside.count_add_numbers)
+void list_add(TList *_entry_list, int item) { // Добавление одного элемента
+    // TList list_inside = {
+    //     ._size_array = 0,
+    //     .count_add_numbers = 0,
+    //     ._start_input_array = NULL
+    // };
+
+    if (_entry_list->_size_array<= _entry_list->count_add_numbers)
     {
-        list_inside._size_array += 1;
-        list_inside._start_input_array = (int*)realloc(list_inside._start_input_array,list_inside._size_array * sizeof(int));
+        _entry_list->_size_array += 1;
+        _entry_list->_start_input_array = (int*)realloc(_entry_list->_start_input_array,_entry_list->_size_array * sizeof(int));
     }
     
-    list_inside._start_input_array[list_inside.count_add_numbers] = item;
-    list_inside.count_add_numbers++;
-    
-    return list_inside;
+    _entry_list->_start_input_array[_entry_list->count_add_numbers] = item;
+    _entry_list->count_add_numbers++;
 }
 
 int list_get_length(TList *list) { // Через каунтер
@@ -67,7 +66,7 @@ TList filter_even(TList *list) {
     {
         if (list->_start_input_array[i] % 2 == 0)
         {
-            list_add(list_output._start_input_array,list->_start_input_array[i]);
+            list_add(&list_output,list->_start_input_array[i]);
         }
     }
     return list_output;
