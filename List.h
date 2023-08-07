@@ -15,5 +15,5 @@ void list_add(TList *list, int item);
 int list_get_length(TList *list);
 
 TList* filter_even(TList *list);
-TList* filter_more_5(TList *list);
+//TList* filter_more_5(TList *list);
 

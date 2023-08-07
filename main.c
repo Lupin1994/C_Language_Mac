@@ -23,7 +23,6 @@ int main()
     list_print(list);
 
     TList *list_output = filter_even(list);
-    list_output = filter_more_5(list_output);
     
     list_print(list_output);
     

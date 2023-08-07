@@ -40,30 +40,51 @@ int list_length = list->length;
 return list_length;
 }
 
-TList* filter_more_5(TList *list){
-    TList *list_elements_more_5 = list_create();
+// TList* filter_more_5(TList *list){
+//     TList *list_elements_more_5 = list_create();
     
-    for (int i = 0; i < list->length; i++)
+//     for (int i = 0; i < list->length; i++)
+//     {
+//         if (list->array[i] > 5)
+//         {
+//             list_add(list_elements_more_5, list->array[i]);
+//         }
+//     }
+//     return list_elements_more_5;
+// }
+
+TList* filter_even(TList *list) {
+    TList *list_output = list_create();
+    printf("Choose your way of filtration: \n");
+    printf(" 1-numbers more 5\t 2-only even numbers\n");
+    int choose_number;
+    scanf("Write number : %d\n",&choose_number);
+    switch (choose_number)
+    {
+    case 1:
+        for (int i = 0; i < list->length; i++)
     {
         if (list->array[i] > 5)
         {
-            list_add(list_elements_more_5, list->array[i]);
+            list_add(list_output, list->array[i]);
         }
     }
-    return list_elements_more_5;
-}
-
-TList* filter_even(TList *list) {
-
-    TList *list_output = list_create();
-
-    for (int i = 0; i < list->length; i++)
+        return list_output;
+        break;
+    case 2:
+        for (int i = 0; i < list->length; i++)
     {
         if (list->array[i] % 2 == 0)
         {
             list_add(list_output, list->array[i]);
         }
     }
-    return list_output;
+        return list_output;
+        break;
+    default:
+        printf("You write wrong number!\n");
+        break;
+    }
+    
 }
 
