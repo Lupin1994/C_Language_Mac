@@ -2,10 +2,10 @@ typedef struct List TList; // Определение нового типа
 
 struct List // Создание структуры входного массива
 {
-    int count_add_numbers;
+    int length;
 
-    int _size_array;
-    int *_start_input_array;
+    int array_size;
+    int *array;
 };
 
 void* list_print(TList *list);
