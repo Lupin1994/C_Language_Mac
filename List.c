@@ -58,33 +58,53 @@ TList* filter_even(TList *list) {
     printf("Choose your way of filtration: \n");
     printf(" 1-numbers more 5\t 2-only even numbers\n");
     int choose_number;
-    scanf("Write number : %d\n",&choose_number);
-    switch (choose_number)
+    printf("Write your number: ");
+    scanf("%d",&choose_number);
+    //printf("choose_number = %d",choose_number);
+    for (int i = 0; i < list->length; i++)
     {
-    case 1:
-        for (int i = 0; i < list->length; i++)
-    {
-        if (list->array[i] > 5)
+        switch (choose_number)
         {
-            list_add(list_output, list->array[i]);
+        case 1:
+            if (list->array[i] > 5){
+                list_add(list_output, list->array[i]);
+            }
+            continue;
+        case 2:
+            if (list->array[i] % 2 == 0)
+            {
+                list_add(list_output, list->array[i]);
+            }
         }
     }
-        return list_output;
-        break;
-    case 2:
-        for (int i = 0; i < list->length; i++)
-    {
-        if (list->array[i] % 2 == 0)
-        {
-            list_add(list_output, list->array[i]);
-        }
-    }
-        return list_output;
-        break;
-    default:
-        printf("You write wrong number!\n");
-        break;
-    }
+    return list_output;
+    
+    // switch (choose_number)
+    // {
+    // case 1:
+    //     for (int i = 0; i < list->length; i++)
+    // {
+    //     if (list->array[i] > 5)
+    //     {
+    //         list_add(list_output, list->array[i]);
+    //     }
+    // }
+    //     return list_output;
+    //     break;
+    // case 2:
+    //     for (int i = 0; i < list->length; i++)
+    // {
+    //     if (list->array[i] % 2 == 0)
+    //     {
+    //         list_add(list_output, list->array[i]);
+    //     }
+    // }
+    //     return list_output;
+    //     break;
+    // default:
+    //     printf("You write wrong number!\n");
+    //     break;
+    // }
     
 }
 
