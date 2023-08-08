@@ -3,7 +3,23 @@
 #include <conio.h>
 #include <stdbool.h>
 #include "List.h"
-
+// ChooseNumber* get_number(){
+//     ChooseNumber *choose_number = (ChooseNumber*) malloc(sizeof(int));
+//     printf("Choose your way of filtration: \n");
+//     printf(" 1-numbers more 5\t 2-only even numbers\n");
+//     printf("Write your number: ");
+//     choose_number = 0;
+//     scanf("%d",&choose_number->choose_number);
+//     return choose_number;
+// }
+int get_number(){
+    printf("Choose your way of filtration: \n");
+    printf(" 1-numbers more 5\t 2-only even numbers\n");
+    printf("Write your number: ");
+    int choose_number = 0;
+    scanf("%d",&choose_number);
+    return choose_number;
+}
 
 TList* list_create() {
     TList *list = (TList*) malloc(sizeof(TList));
@@ -40,71 +56,54 @@ int list_length = list->length;
 return list_length;
 }
 
-// TList* filter_more_5(TList *list){
-//     TList *list_elements_more_5 = list_create();
-    
-//     for (int i = 0; i < list->length; i++)
-//     {
-//         if (list->array[i] > 5)
-//         {
-//             list_add(list_elements_more_5, list->array[i]);
-//         }
-//     }
-//     return list_elements_more_5;
-// }
+bool filter_predicate(int choose_number, int element){
+
+    switch (choose_number)
+        {
+        case 1:
+            if (element > 5){
+                return true;
+            }
+        case 2:
+            if (element % 2 == 0){
+                return true;
+            }
+        default:
+            return false;
+        }
+}
 
 TList* filter_even(TList *list) {
     TList *list_output = list_create();
-    printf("Choose your way of filtration: \n");
-    printf(" 1-numbers more 5\t 2-only even numbers\n");
-    int choose_number;
-    printf("Write your number: ");
-    scanf("%d",&choose_number);
-    //printf("choose_number = %d",choose_number);
+    int choose_number = get_number();
+    // printf("Choose your way of filtration: \n");
+    // printf(" 1-numbers more 5\t 2-only even numbers\n");
+    // int choose_number;
+    // printf("Write your number: ");
+    // scanf("%d",&choose_number);
     for (int i = 0; i < list->length; i++)
     {
-        switch (choose_number)
+        if (filter_predicate(choose_number, list->array[i]) == true)
         {
-        case 1:
-            if (list->array[i] > 5){
-                list_add(list_output, list->array[i]);
-            }
-            continue;
-        case 2:
-            if (list->array[i] % 2 == 0)
-            {
-                list_add(list_output, list->array[i]);
-            }
+            list_add(list_output, list->array[i]);
         }
     }
+    
+    // for (int i = 0; i < list->length; i++)
+    // {
+    //     switch (choose_number)
+    //     {
+    //     case 1:
+    //         if (list->array[i] > 5){
+    //             list_add(list_output, list->array[i]);
+    //         }
+    //         continue;
+    //     case 2:
+    //         if (list->array[i] % 2 == 0){
+    //             list_add(list_output, list->array[i]);
+    //         }
+    //     }
+    // }
     return list_output;
-    
-    // switch (choose_number)
-    // {
-    // case 1:
-    //     for (int i = 0; i < list->length; i++)
-    // {
-    //     if (list->array[i] > 5)
-    //     {
-    //         list_add(list_output, list->array[i]);
-    //     }
-    // }
-    //     return list_output;
-    //     break;
-    // case 2:
-    //     for (int i = 0; i < list->length; i++)
-    // {
-    //     if (list->array[i] % 2 == 0)
-    //     {
-    //         list_add(list_output, list->array[i]);
-    //     }
-    // }
-    //     return list_output;
-    //     break;
-    // default:
-    //     printf("You write wrong number!\n");
-    //     break;
-    // }
-    
 }
 

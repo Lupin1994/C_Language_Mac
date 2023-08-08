@@ -8,6 +8,13 @@ struct List // Создание структуры входного массив
     int *array;
 };
 
+// typedef struct Menu ChooseNumber;
+// struct Menu
+// {
+//     int choose_number;
+// };
+
+
 void list_print(TList *list);
 TList* list_create();
 void list_add(TList *list, int item);

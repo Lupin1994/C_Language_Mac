@@ -20,8 +20,6 @@ int main()
         _stop_char = getchar();
     } while (_stop_char == 'y');
 
-    list_print(list);
-
     TList *list_output = filter_even(list);
     
     list_print(list_output);
