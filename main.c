@@ -4,6 +4,20 @@
 #include <stdbool.h>
 #include "List.h"
 
+bool filter_predicate(int choose_number, int element){
+    bool result;
+    int number = choose_number;
+    switch (number)
+    {
+        case 1:
+            result = element > 5 ? true : false;
+            return result;
+        case 2:
+            result = element % 2 == 0 ? true : false;
+            return result;
+    }
+}
+
 int main()
 {
     TList *list = list_create();
@@ -23,11 +37,11 @@ int main()
     printf("Choose your way of filtration: \n");
     printf(" 1-numbers more 5\t 2-only even numbers\n");
     printf("Write your number: ");
-    int choose_number = 0;
+    int element,choose_number = 0;
     scanf("%d",&choose_number);
 
 
-    TList *list_output = filter_even(list, choose_number);
+    TList *list_output = filter_even(list, filter_predicate(choose_number,element));
     
     list_print(list_output);
     
