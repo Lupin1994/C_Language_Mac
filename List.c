@@ -57,16 +57,16 @@ return list_length;
 }
 
 bool filter_predicate(int choose_number, int element){
-
+    bool result;
     switch (choose_number)
-        {
+    {
         case 1:
-            element > 5 ? true : false;
-            break;
+            result = element > 5 ? true : false;
+            return result;
         case 2:
-            element % 2 == 0 ? true : false;
-            break;
-        }
+            result = element % 2 == 0 ? true : false;
+            return result;
+    }
 
 }
 
