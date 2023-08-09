@@ -20,7 +20,7 @@ TList* list_create();
 void list_add(TList *list, int item);
 
 int list_get_length(TList *list);
-
-TList* filter_even(TList *list);
+bool filter_predicate(int choose_number, int element);
+TList* filter_even(TList *list, int number);
 //TList* filter_more_5(TList *list);
 

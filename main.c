@@ -20,7 +20,14 @@ int main()
         _stop_char = getchar();
     } while (_stop_char == 'y');
 
-    TList *list_output = filter_even(list);
+    printf("Choose your way of filtration: \n");
+    printf(" 1-numbers more 5\t 2-only even numbers\n");
+    printf("Write your number: ");
+    int choose_number = 0;
+    scanf("%d",&choose_number);
+
+
+    TList *list_output = filter_even(list, choose_number);
     
     list_print(list_output);
     

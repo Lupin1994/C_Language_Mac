@@ -12,14 +12,14 @@
 //     scanf("%d",&choose_number->choose_number);
 //     return choose_number;
 // }
-int get_number(){
-    printf("Choose your way of filtration: \n");
-    printf(" 1-numbers more 5\t 2-only even numbers\n");
-    printf("Write your number: ");
-    int choose_number = 0;
-    scanf("%d",&choose_number);
-    return choose_number;
-}
+// int get_number(){
+//     printf("Choose your way of filtration: \n");
+//     printf(" 1-numbers more 5\t 2-only even numbers\n");
+//     printf("Write your number: ");
+//     int choose_number = 0;
+//     scanf("%d",&choose_number);
+//     return choose_number;
+// }
 
 TList* list_create() {
     TList *list = (TList*) malloc(sizeof(TList));
@@ -61,21 +61,18 @@ bool filter_predicate(int choose_number, int element){
     switch (choose_number)
         {
         case 1:
-            if (element > 5){
-                return true;
-            }
+            element > 5 ? true : false;
+            break;
         case 2:
-            if (element % 2 == 0){
-                return true;
-            }
-        default:
-            return false;
+            element % 2 == 0 ? true : false;
+            break;
         }
+
 }
 
-TList* filter_even(TList *list) {
+TList* filter_even(TList *list, int number) {
     TList *list_output = list_create();
-    int choose_number = get_number();
+    int choose_number = number;
     // printf("Choose your way of filtration: \n");
     // printf(" 1-numbers more 5\t 2-only even numbers\n");
     // int choose_number;
