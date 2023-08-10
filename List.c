@@ -54,13 +54,12 @@ return list_length;
 
 // }
 
-TList* filter_even(TList *list, bool predicate(int,int)) {
+TList* filter_even(TList *list, bool (*predicate)(int)) {
     TList *list_output = list_create();
-    int choose_number = choose_number;
 
     for (int i = 0; i < list->length; i++)
     {
-        if (predicate(choose_number, list->array[i]) == true)
+        if ((*predicate)(list->array[i]) == true)
         {
             list_add(list_output, list->array[i]);
         }

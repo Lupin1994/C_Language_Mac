@@ -21,7 +21,9 @@ void list_add(TList *list, int item);
 
 int list_get_length(TList *list);
 
-TList* filter_even(TList *list, bool predicate(int,int));
-//bool filter_predicate(int choose_number, int element);
+TList* filter_even(TList *list, bool (*predicate)(int));
+bool filter_predicate(int element);
+bool* predicate_more_5(int element);
+bool* predicate_even_number(int element);
 //TList* filter_more_5(TList *list);
 
