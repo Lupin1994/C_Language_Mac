@@ -4,26 +4,24 @@
 #include <stdbool.h>
 #include "List.h"
 
-bool filter_predicate(int choose_number){
-    printf("%d\t",choose_number);
+bool choose_predicate(int choose_number, int element){
     switch (choose_number)
     {
         case 1:
-            return &predicate_more_5;
+            return predicate_filter_more_5(element);
         case 2:
-            return &predicate_even_number;
+            return predicate_filter_even_number(element);
     }
 }
-bool* predicate_more_5(int element){
-    //printf("%d\t",element);
+bool predicate_filter_more_5(int element){
     bool result;
     result = element > 5 ? true : false;
-    return (bool*)result;
+    return result;
 }
-bool* predicate_even_number(int element){
+bool predicate_filter_even_number(int element){
     bool result;
     result = element % 2 == 0 ? true : false;
-    return (bool*)result;
+    return result;
 }
 
 int main()
@@ -48,8 +46,8 @@ int main()
     int choose_number;
     scanf("%d",&choose_number);
 
-    filter_predicate(choose_number);
-    TList *list_output = filter_even(list, filter_predicate);
+    //choose_predicate(choose_number);
+    TList *list_output = creat_listoutput_with_filtering_elements(list, choose_number);
     
     list_print(list_output);
     
