@@ -8,11 +8,11 @@ struct List // Создание структуры входного массив
     int *array;
 };
 
-typedef struct Link Transfer_link;
-struct Link
-{
-    /* data */
-};
+// typedef struct Link Transfer_link;
+// struct Link
+// {
+//     /* data */
+// };
 
 
 // typedef struct Menu ChooseNumber;

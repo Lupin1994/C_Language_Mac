@@ -40,19 +40,6 @@ int list_length = list->length;
 return list_length;
 }
 
-// bool filter_predicate(int choose_number, int element){
-//     bool result;
-//     switch (choose_number)
-//     {
-//         case 1:
-//             result = element > 5 ? true : false;
-//             return result;
-//         case 2:
-//             result = element % 2 == 0 ? true : false;
-//             return result;
-//     }
-
-// }
 
 TList* creat_listoutput_with_filtering_elements(TList *list, int choose_number) {
     TList *list_output = list_create();
@@ -64,8 +51,6 @@ TList* creat_listoutput_with_filtering_elements(TList *list, int choose_number) 
             list_add(list_output, list->array[i]);
         }
     }
-    
-    
     return list_output;
 }
 
