@@ -53,10 +53,19 @@ int main()
     // printf("Write your number: ");
     // int choose_number;
     // scanf("%d",&choose_number);
-
-    //choose_predicate(choose_number);
-    TList *list_output = creat_listoutput_with_filtering_elements(list);
-    
+    TList *list_output;
+    switch (Choose_number())
+    {
+        case 1:
+            creat_listoutput_with_filtering_elements(list, predicate_filter_more_5);
+        case 2:
+            creat_listoutput_with_filtering_elements(list, predicate_filter_even_number);
+    }
     list_print(list_output);
+
+    
+    //TList *list_output = creat_listoutput_with_filtering_elements(list, choose_predicate);
+    
+
     
 }
