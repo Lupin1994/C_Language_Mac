@@ -27,7 +27,7 @@ TList* list_create();
 void list_add(TList *list, int item);
 
 int list_get_length(TList *list);
-int Choose_number();
+//int Choose_number();
 
 TList* creat_listoutput_with_filtering_elements(TList *list, bool (*predicate)(int));
 // bool choose_predicate(int choose_number, int element);

@@ -23,14 +23,14 @@
 //     result = element % 2 == 0 ? true : false;
 //     return result;
 // }
-int Choose_number(){
-    printf("Choose your way of filtration: \n");
-    printf(" 1-numbers more 5\t 2-only even numbers\n");
-    printf("Write your number: ");
-    int choose_number;
-    scanf("%d",&choose_number);
-    return choose_number;
-}
+// int Choose_number(){
+//     printf("Choose your way of filtration: \n");
+//     printf(" 1-numbers more 5\t 2-only even numbers\n");
+//     printf("Write your number: ");
+//     int choose_number;
+//     scanf("%d",&choose_number);
+//     return choose_number;
+// }
 
 int main()
 {
@@ -48,24 +48,22 @@ int main()
         _stop_char = getchar();
     } while (_stop_char == 'y');
 
-    // printf("Choose your way of filtration: \n");
-    // printf(" 1-numbers more 5\t 2-only even numbers\n");
-    // printf("Write your number: ");
-    // int choose_number;
-    // scanf("%d",&choose_number);
+    printf("Choose your way of filtration: \n");
+    printf(" 1-numbers more 5\t 2-only even numbers\n");
+    printf("Write your number: ");
+    int choose_number;
+    scanf("%d",&choose_number);
+    
     TList *list_output;
-    switch (Choose_number())
+    switch (choose_number)
     {
         case 1:
-            creat_listoutput_with_filtering_elements(list, predicate_filter_more_5);
+            list_output = creat_listoutput_with_filtering_elements(list, predicate_filter_more_5);
         case 2:
-            creat_listoutput_with_filtering_elements(list, predicate_filter_even_number);
+            list_output = creat_listoutput_with_filtering_elements(list, predicate_filter_even_number);
     }
     list_print(list_output);
 
     
     //TList *list_output = creat_listoutput_with_filtering_elements(list, choose_predicate);
-    
-
-    
 }

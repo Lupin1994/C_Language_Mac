@@ -46,7 +46,7 @@ TList* creat_listoutput_with_filtering_elements(TList *list, bool (*predicate)(i
     // int choose_number = Choose_number();
     for (int i = 0; i < list->length; i++)
     {
-        if ((*predicate)(list->array[i]) == true)
+        if (predicate(list->array[i]) == true)
         {
             list_add(list_output, list->array[i]);
         }
