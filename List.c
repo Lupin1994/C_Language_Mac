@@ -41,12 +41,12 @@ return list_length;
 }
 
 
-TList* creat_listoutput_with_filtering_elements(TList *list, bool (*predicate)(int, int), int choose_number) {
+TList* creat_listoutput_with_filtering_elements(TList *list, bool (*predicate)(int, int)) {
     TList *list_output = list_create();
-    
+    int choose_number = Choose_number();
     for (int i = 0; i < list->length; i++)
     {
-        if (choose_predicate(choose_number,list->array[i]) == true)
+        if (choose_predicate(choose_number, list->array[i]) == true)
         {
             list_add(list_output, list->array[i]);
         }

@@ -21,5 +21,5 @@ bool predicate_filter_more_5(int element){
 }
 bool predicate_filter_even_number(int element){
 
-    return element % 2;
+    return element % 2 == 0;
 }
