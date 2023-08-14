@@ -41,7 +41,7 @@ return list_length;
 }
 
 
-TList* creat_listoutput_with_filtering_elements(TList *list, int choose_number) {
+TList* creat_listoutput_with_filtering_elements(TList *list, bool (*predicate)(int, int), int choose_number) {
     TList *list_output = list_create();
     
     for (int i = 0; i < list->length; i++)
