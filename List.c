@@ -41,16 +41,37 @@ return list_length;
 }
 
 
-TList* creat_listoutput_with_filtering_elements(TList *list, bool (*predicate)(int, int)) {
+TList* creat_listoutput_with_filtering_elements(TList *list) {
     TList *list_output = list_create();
-    int choose_number = Choose_number();
-    for (int i = 0; i < list->length; i++)
+        switch (Choose_number())
     {
-        if (choose_predicate(choose_number, list->array[i]) == true)
-        {
-            list_add(list_output, list->array[i]);
-        }
+        case 1:
+            for (int i = 0; i < list->length; i++)
+            {
+                if (predicate_filter_more_5(list->array[i])==true)
+                {
+                    list_add(list_output, list->array[i]);
+                }  
+            }
+            return list_output;
+        case 2:
+            for (int i = 0; i < list->length; i++)
+            {
+                if (predicate_filter_even_number(list->array[i])==true)
+                {
+                    list_add(list_output, list->array[i]);
+                }  
+            }
+            return list_output;
     }
-    return list_output;
 }
+//     for (int i = 0; i < list->length; i++)
+//     {
+//         if (choose_predicate(choose_number, list->array[i]) == true)
+//         {
+//             list_add(list_output, list->array[i]);
+//         }
+//     }
+//     return list_output;
+// }
 

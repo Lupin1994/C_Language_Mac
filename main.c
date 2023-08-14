@@ -55,7 +55,7 @@ int main()
     // scanf("%d",&choose_number);
 
     //choose_predicate(choose_number);
-    TList *list_output = creat_listoutput_with_filtering_elements(list, choose_predicate);
+    TList *list_output = creat_listoutput_with_filtering_elements(list);
     
     list_print(list_output);
     
