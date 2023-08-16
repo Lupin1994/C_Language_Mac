@@ -36,9 +36,15 @@ int main()
     //         list_output = creat_listoutput_with_filtering_elements(list, predicate_filter_even_number);
     //         break;
     // }
-    remove_element_in_list(list);
-    
-    list_print(list);
+    int index, element;
+    TList* list_output = list_create();
+    printf("Write element who you want add : ");
+    scanf("%d", &element);
+    printf("Write index element: ");
+    scanf("%d",&index);
+    list_output = list_update_elements(list,element,index);
+    list_print(list_output);
+
 
     
 
