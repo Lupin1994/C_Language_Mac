@@ -68,7 +68,7 @@ void list_remove_by_index(TList *entry_list, int index){
     entry_list->length = entry_list->length - 1;
 }
 
-TList* list_update_elements(TList *entry_list, int element, int index_element){
+TList* list_add_elements_by_index(TList *entry_list, int element, int index_element){
 
     TList *list_output = list_create();
 
@@ -84,14 +84,33 @@ TList* list_update_elements(TList *entry_list, int element, int index_element){
         list_add(list_output,entry_list->array[i]);
     }
     return list_output;
-    
-    // int change_element = entry_list->array[index_element];
-    // entry_list->array[index_element] = element;
+}
+void list_update_element_by_index(TList* entry_list, int element, int index_element){
+    entry_list->array[index_element] = element;
+}
 
-    // for (int i = index_element+1; i < entry_list->length - 1; i++)
-    // {
-    //     int next_element = entry_list->array[i];
-    //     entry_list->array[i] = change_element;
-    //     change_element = next_element;
-    // }
+void list_search_element(TList *entry_list, int element){
+    for (int i = 0; i < entry_list->length; i++)
+    {
+        if (element == entry_list->array[i])
+        {
+            printf("Your number %d ", element);
+            printf("with index [%d]",i);
+        }
+        
+    }
+    
+}
+void list_reverse(TList *entry_list){
+    
+    if (entry_list->length % 2 == 0)
+    {
+        /* code */
+    }
+    else
+    {
+        /* code */
+    }
+    
+    
 }
