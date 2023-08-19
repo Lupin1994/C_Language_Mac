@@ -25,7 +25,8 @@ bool predicate_filter_even_number(int element);
 void list_remove_by_index(TList *entry_list, int index);
 TList* list_add_elements_by_index(TList *entry_list, int element, int index_element);
 void list_update_element_by_index(TList* entry_list, int element, int index_element);
-void list_search_element(TList *entry_list, int element);
+int list_search_element(TList *entry_list, int element);
+void list_reverse(TList *entry_list);
 
 
 

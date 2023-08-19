@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <conio.h>
 #include <stdbool.h>
 #include "List.h"
 
@@ -101,13 +100,15 @@ int main()
     //         list_output = creat_listoutput_with_filtering_elements(list, predicate_filter_even_number);
     //         break;
     // }
-    int index, element;
-    TList* list_output = list_create();
-    printf("Write element who you want add : ");
-    scanf("%d", &element);
-    printf("Write index element: ");
-    scanf("%d",&index);
-    list_update_element_by_index(list,element,index);
+    // int index, element;
+    // TList* list_output = list_create();
+    // printf("Write element who you want add : ");
+    // scanf("%d", &element);
+    // printf("Write index element: ");
+    // scanf("%d",&index);
+    // list_update_element_by_index(list,element,index);
+    // list_print(list);
+    list_reverse(list);
     list_print(list);
     // list_output = list_add_elements_by_index(list,element,index);
     // list_print(list_output);

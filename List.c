@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <conio.h>
 #include <stdbool.h>
 #include "List.h"
 
@@ -89,28 +88,27 @@ void list_update_element_by_index(TList* entry_list, int element, int index_elem
     entry_list->array[index_element] = element;
 }
 
-void list_search_element(TList *entry_list, int element){
+int list_search_element(TList *entry_list, int element){
+    int count = 0;
     for (int i = 0; i < entry_list->length; i++)
     {
         if (element == entry_list->array[i])
         {
-            printf("Your number %d ", element);
-            printf("with index [%d]",i);
-        }
-        
+            count++;
+        } 
     }
+    return count;
     
 }
 void list_reverse(TList *entry_list){
-    
-    if (entry_list->length % 2 == 0)
+
+    int j = entry_list->length - 1;
+
+    for (int i = 0; i < entry_list->length / 2; i++)
     {
-        /* code */
+        int temp_current = entry_list->array[i];
+        entry_list->array[i] = entry_list->array[j];
+        entry_list->array[j] = temp_current;
+        j--;
     }
-    else
-    {
-        /* code */
-    }
-    
-    
 }
