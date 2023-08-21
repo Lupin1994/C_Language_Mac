@@ -92,7 +92,7 @@ int list_search_element(TList *entry_list, int element){
     int count = 0;
     for (int i = 0; i < entry_list->length; i++)
     {
-        if (element == entry_list->array[i])
+        if (predicate_search_equal_element(element, entry_list->array[i]))
         {
             count++;
         } 

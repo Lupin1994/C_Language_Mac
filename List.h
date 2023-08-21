@@ -21,6 +21,7 @@ TList* creat_listoutput_with_filtering_elements(TList *list, bool (*predicate)(i
 
 bool predicate_filter_more_5(int element);
 bool predicate_filter_even_number(int element);
+bool predicate_search_equal_element(int search_element, int element_in_list);
 
 void list_remove_by_index(TList *entry_list, int index);
 TList* list_add_elements_by_index(TList *entry_list, int element, int index_element);

@@ -14,3 +14,6 @@ bool predicate_filter_even_number(int element){
 
     return element % 2 == 0;
 }
+bool predicate_search_equal_element(int search_element, int element_in_list){
+    return search_element == element_in_list;
+}
