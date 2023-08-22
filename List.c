@@ -88,11 +88,11 @@ void list_update_element_by_index(TList* entry_list, int element, int index_elem
     entry_list->array[index_element] = element;
 }
 
-int list_search_element(TList *entry_list, int element){
+int list_search_element(TList *entry_list, int element, bool (*predicate)(int, int)){
     int count = 0;
     for (int i = 0; i < entry_list->length; i++)
     {
-        if (predicate_search_equal_element(element, entry_list->array[i]))
+        if (predicate(element, entry_list->array[i]))
         {
             count++;
         } 
@@ -111,4 +111,14 @@ void list_reverse(TList *entry_list){
         entry_list->array[j] = temp_current;
         j--;
     }
+}
+
+TList* map(TList *entry_list, int (function(int))){
+    TList *list_output = list_create(); 
+
+    for (int i = 0; i < entry_list->length; i++)
+    {
+        list_add(list_output,function(entry_list->array[i]));
+    }
+    return list_output;
 }
