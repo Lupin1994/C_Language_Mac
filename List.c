@@ -84,7 +84,8 @@ TList* list_add_elements_by_index(TList *entry_list, int element, int index_elem
     }
     return list_output;
 }
-void list_update_element_by_index(TList* entry_list, int element, int index_element){
+
+void list_update_elements(TList* entry_list, int element, int index_element){
     entry_list->array[index_element] = element;
 }
 

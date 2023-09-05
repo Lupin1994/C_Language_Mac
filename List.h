@@ -30,6 +30,7 @@ void list_update_element_by_index(TList* entry_list, int element, int index_elem
 int list_search_element(TList *entry_list, int element, bool (*predicate)(int, int));
 void list_reverse(TList *entry_list);
 TList* map(TList *entry_list, int (function(int)));
+void list_update_elements(TList* entry_list, int element, int index_element);
 
 
 
